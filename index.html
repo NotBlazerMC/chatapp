@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+</head>
+<body>
+    <h2>Chat Application By Blazer</h2>
+    <form>
+        <label for="username">Enter your username:</label>
+        <input type="text" id="username" required>
+        <button type="button" onclick="joinChat()">Join Chat</button>
+    </form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.3/socket.io.js"></script>
+    <script>
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+        function joinChat() {
+            var username = document.getElementById('username').value;
+            window.location.href = '/chat/' + username;
+        }
+    </script>
+</body>
+</html>
